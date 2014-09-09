@@ -1,0 +1,13 @@
+{
+    "name": "atn/top-delivery",
+    "version": "0.0.1",
+    "require": {
+        "guzzle/guzzle": "3.*",
+        "sabre/xml": "0.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "TopDelivery\\Client": "src/"
+        }
+    }
+}
