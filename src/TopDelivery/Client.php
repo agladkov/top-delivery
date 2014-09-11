@@ -104,7 +104,7 @@ class Client {
             }
             $result = $this->getChildValue($response, 'result');
             if (!empty($result))
-                return $result;
+                return json_decode($result);
             else {
                 var_dump($response);
                 throw new \Exception("[ERROR][UNKNOWN] Empty result");
