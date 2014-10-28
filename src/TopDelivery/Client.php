@@ -12,7 +12,7 @@ class Client {
 
     public function __construct($login, $password) {
         $this->token = array(
-            'login' => 'Webshop',//$login,
+            'login' => $login,
             'password' => $password,
         );
         $this->client = new \Guzzle\Http\Client();
