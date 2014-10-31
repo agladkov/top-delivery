@@ -10,7 +10,13 @@ class Client {
 
     private $token;
 
-    public function __construct($login, $password) {
+    private $apiURL = 'http://is.topdelivery.ru/tests/xmlGate/index.php';
+
+    public function __construct($login, $password, $debug = true) {
+        if ($debug !== false) {
+            $this->apiURL = 'http://production.is.topdelivery.ru/tests/xmlGate/index.php';
+            list($login, $password) = array('user', 'pass');
+        }
         $this->token = array(
             'login' => $login,
             'password' => $password,
@@ -71,7 +77,7 @@ class Client {
             ));
 
             $post = $writer->outputMemory();
-            $result = $this->client->post("http://production.is.topdelivery.ru/tests/xmlGate/index.php", null, $post, array(
+            $result = $this->client->post($this->apiURL, null, $post, array(
                 'auth' => array(
                     'user', 'pass',
                 )
